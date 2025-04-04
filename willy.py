@@ -18,11 +18,10 @@ st.title("📍 Address Explorer & Map")
 # Sidebar search controls
 with st.sidebar:
     st.header("Search & Filter")
-    search_query = st.text_input("🔍 Search name or address:")
+    search_query = st.text_input("🔍 Search name or address:", value="")
     country_list = ["All"] + sorted(df['Country'].dropna().unique().tolist())
     selected_country = st.selectbox("🌍 Filter by Country:", country_list)
-    show_map = st.button("🗺️ Show Filtered Map")
-    reset = st.button("🔄 Reset")
+    show_map = st.checkbox("🗺️ Show Map", value=True)
 
 # Filter logic
 filtered_df = df.copy()
@@ -63,4 +62,6 @@ if show_map and not filtered_df.empty:
             tooltip=row["Name"]
         ).add_to(marker_cluster)
 
-    st_folium(m, width=1000, height=600)
+    st_data = st_folium(m, width=1000, height=600, returned_objects=[])
+else:
+    st.info("Map is hidden. Check the 'Show Map' option in the sidebar to display it.")
