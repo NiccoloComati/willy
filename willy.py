@@ -56,11 +56,18 @@ if show_map and not filtered_df.empty:
             {row['Address']}
         </div>
         """
+        # folium.Marker(
+        #     location=[row["Latitude"], row["Longitude"]],
+        #     popup=popup_html,
+        #     tooltip=row["Name"]
+        # ).add_to(marker_cluster)
         folium.Marker(
             location=[row["Latitude"], row["Longitude"]],
             popup=popup_html,
-            tooltip=row["Name"]
+            tooltip=row["Name"],
+            icon=folium.Icon(icon='map-marker', prefix='fa')  # <- this fixes the broken icon!
         ).add_to(marker_cluster)
+
 
     st_data = st_folium(m, width=1000, height=600, returned_objects=[])
 else:
