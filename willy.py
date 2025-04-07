@@ -107,8 +107,10 @@ if not check_password():
     st.stop()
 # --- END PASSWORD PROTECTION ---
 
+# https://drive.google.com/file/d/1TlL6YkFmIwc2HFYE8Y51xRPIrmybQcXU/
+
 # Load CSV from Google Drive
-csv_url = 'https://drive.google.com/uc?id=1uMF-hAgVr9Ha6awyz6bOJDVywbsXwhiH'
+csv_url = 'https://drive.google.com/uc?id=1TlL6YkFmIwc2HFYE8Y51xRPIrmybQcXU'
 df = pd.read_csv(csv_url).drop_duplicates()
 
 # Extract country from address
