@@ -105,7 +105,7 @@ def check_password():
 
 if not check_password():
     st.stop()
---- END PASSWORD PROTECTION ---
+# --- END PASSWORD PROTECTION ---
 
 # Load CSV from Google Drive
 csv_url = 'https://drive.google.com/uc?id=1uMF-hAgVr9Ha6awyz6bOJDVywbsXwhiH'
