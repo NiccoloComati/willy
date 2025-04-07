@@ -80,7 +80,7 @@ from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 
 # --- PASSWORD PROTECTION ---
-PASSWORD = "your_password_here"
+PASSWORD = "gattinobiscotto"
 
 def check_password():
     def password_entered():
