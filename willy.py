@@ -64,7 +64,7 @@ if search_query:
 # Mostra risultati filtrati
 st.subheader("📋 Risultati Filtrati")
 if not filtered_df.empty:
-    filtered_df = filtered_df.sort_values(by="Name")
+    filtered_df = filtered_df.sort_values(by="Name").reset_index()
     st.dataframe(filtered_df[['Name', 'Address', 'Country']], use_container_width=True)
 else:
     st.warning("Nessun risultato trovato.")
