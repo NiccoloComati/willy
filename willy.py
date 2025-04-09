@@ -4,9 +4,10 @@ import folium
 from folium.plugins import MarkerCluster
 from streamlit_folium import st_folium
 
-# --- PROTEZIONE CON PASSWORD ---
-PASSWORD = "gattinobiscotto"
+PASSWORD = st.secrets["password"]
+CSV_URL = st.secrets["csv_url"]
 
+# --- PROTEZIONE CON PASSWORD ---
 def check_password():
     def password_entered():
         if st.session_state["password"] == PASSWORD:
@@ -30,8 +31,7 @@ if not check_password():
 # --- FINE PROTEZIONE ---
 
 # Carica CSV da Google Drive
-csv_url = 'https://drive.google.com/uc?id=1TlL6YkFmIwc2HFYE8Y51xRPIrmybQcXU'
-df = pd.read_csv(csv_url).drop_duplicates()
+df = pd.read_csv(CSV_URL).drop_duplicates()
 
 # Estrai il paese dall'indirizzo
 df['Country'] = df['Address'].str.extract(r'([A-Z][a-z]+(?:\s[A-Z][a-z]+)?)$')
