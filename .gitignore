@@ -1,0 +1,13 @@
+﻿# Python and notebook artifacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Keep private legacy archive local only
+legacy/archive/rand-2-willy/
